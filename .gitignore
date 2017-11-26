@@ -2,3 +2,4 @@
 data/
 datasets/
 __pycache__/
+Self Driving Car/last_brain.pth
