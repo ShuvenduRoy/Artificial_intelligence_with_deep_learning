@@ -6,18 +6,18 @@ import torch.nn as nn
 import torchvision.datasets as dsets
 import torchvision.transforms as transforms
 from torch.autograd import Variable
-
+from pathlib import Path
 
 # load dataset
 batch_size = 100
 
 # MNIST Dataset (Images and Labels)
-train_dataset = dsets.MNIST(root='C:\datasets\mnist',
+train_dataset = dsets.MNIST(root=str(Path.home())+'/datasets/mnist',
                             train=True,
                             transform=transforms.ToTensor(),
                             download=True)
 
-test_dataset = dsets.MNIST(root='C:\datasets\mnist',
+test_dataset = dsets.MNIST(root=str(Path.home())+'/datasets/mnist',
                            train=False,
                            transform=transforms.ToTensor())
 
