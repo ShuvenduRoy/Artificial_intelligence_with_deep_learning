@@ -4,4 +4,9 @@ Implementation and modification of standard models to test its performance and a
 ## Basic machine learning
 - [Linear Regression](/linear_regression)
 - [Logistic Regression](/logistic_regression)
+
+## Deep Learning
 - [Feed forward neural network](/feedforward_neural_network)
+
+## Convolutional neural network
+- [Convolutional neural network](/convolutional_neural_network)
