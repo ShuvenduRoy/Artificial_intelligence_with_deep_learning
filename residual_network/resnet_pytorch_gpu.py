@@ -31,7 +31,7 @@ test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
                                           shuffle=False)
 
 # Hyper Parameters
-num_epochs = 5
+num_epochs = 80
 learning_rate = 0.001
 
 # image transformation
@@ -144,21 +144,21 @@ for epoch in range(num_epochs):
         if (i+1) % 100 == 0:
             print ("Epoch [%d/%d], Iter [%d/%d] Loss: %.4f" %(epoch+1, 80, i+1, 500, loss.data[0]))
 
-if (epoch + 1) % 20 == 0:
-    learning_rate /= 3
-    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+    if (epoch + 1) % 20 == 0:
+        learning_rate /= 3
+        optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-    # Test
-    correct = 0
-    total = 0
-    for images, labels in test_loader:
-        images = Variable(images.cuda())
-        outputs = model(images)
-        _, predicted = torch.max(outputs.data, 1)
-        total += labels.size(0)
-        correct += (predicted.cpu() == labels).sum()
+# Test
+correct = 0
+total = 0
+for images, labels in test_loader:
+    images = Variable(images.cuda())
+    outputs = model(images)
+    _, predicted = torch.max(outputs.data, 1)
+    total += labels.size(0)
+    correct += (predicted.cpu() == labels).sum()
 
-    print('Accuracy of the model on the test images: %d %%' % (100 * correct / total))
+print('Accuracy of the model on the test images: %d %%' % (100 * correct / total))
 
 # save the model
 torch.save(model.state_dict(), 'model.pkl')
