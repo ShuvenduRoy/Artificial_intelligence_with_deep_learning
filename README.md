@@ -10,3 +10,8 @@ Implementation and modification of standard models to test its performance and a
 
 ## Convolutional neural network
 - [Convolutional neural network](/convolutional_neural_network)
+
+# Generative Models
+Generative algorithms. Algorithms that generate data in some form
+## AutoEncoder
+- [Simple AutoEncoder](/auto_encoder/simple_autoencoder)
