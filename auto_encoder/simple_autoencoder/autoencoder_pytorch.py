@@ -21,22 +21,23 @@ train_dataset = dsets.MNIST(root='C:\datasets\mnist',
 test_dataset = dsets.MNIST(root='C:\datasets\mnist',
                            train=False,
                            transform=transforms.ToTensor())
-                           
+
 # Dataset Loader (Input Pipline)
-train_loader = torch.utils.data.DataLoader(dataset=train_dataset, 
-                                           batch_size=batch_size, 
+train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
+                                           batch_size=batch_size,
                                            shuffle=True)
 
-test_loader = torch.utils.data.DataLoader(dataset=test_dataset, 
-                                          batch_size=batch_size, 
+test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
+                                          batch_size=batch_size,
                                           shuffle=False)
+
 
 # define the model
 class AutoEncoder(nn.Module):
     def __init__(self):
         super(AutoEncoder, self).__init__()
-        self.encoder  = nn.Sequential(
-            nn.Linear(28*28, 128),
+        self.encoder = nn.Sequential(
+            nn.Linear(28 * 28, 128),
             nn.Tanh(),
             nn.Linear(128, 64),
             nn.Tanh(),
@@ -44,7 +45,7 @@ class AutoEncoder(nn.Module):
             nn.Tanh(),
             nn.Linear(12, 3),  # 3 feattures will be visualized in plt
         )
-        
+
         self.decoder = nn.Sequential(
             nn.Linear(3, 12),
             nn.Tanh(),
@@ -52,7 +53,7 @@ class AutoEncoder(nn.Module):
             nn.Tanh(),
             nn.Linear(64, 128),
             nn.Tanh(),
-            nn.Linear(128, 28*28),
+            nn.Linear(128, 28 * 28),
             nn.Sigmoid(),
         )
 
@@ -73,22 +74,22 @@ learning_rate = 0.005
 criterion = nn.MSELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-
 # initialize figure
 f, a = plt.subplots(2, 5, figsize=(5, 2))
-plt.ion()   # continuously plot
+plt.ion()  # continuously plot
 
 # original data (first row) for viewing
-view_data = Variable(train_dataset.train_data[:5].view(-1, 28*28).type(torch.FloatTensor)/255.)
+view_data = Variable(train_dataset.train_data[:5].view(-1, 28 * 28).type(torch.FloatTensor) / 255.)
 for i in range(5):
-    a[0][i].imshow(np.reshape(view_data.data.numpy()[i], (28, 28)), cmap='gray'); a[0][i].set_xticks(()); a[0][i].set_yticks(())
-
+    a[0][i].imshow(np.reshape(view_data.data.numpy()[i], (28, 28)), cmap='gray');
+    a[0][i].set_xticks(());
+    a[0][i].set_yticks(())
 
 # train the model
 for epoch in range(num_epochs):
     for step, (images, labels) in enumerate(train_loader):
-        inputs = Variable(images.view(-1, 28*28))
-        targets = Variable(images.view(-1, 28*28))
+        inputs = Variable(images.view(-1, 28 * 28))
+        targets = Variable(images.view(-1, 28 * 28))
 
         # Forward
         optimizer.zero_grad()
@@ -101,8 +102,8 @@ for epoch in range(num_epochs):
         # optimize
         optimizer.step()
 
-        if (step+1) % 100 == 0:
-            print ("Epoch [%d/%d], Iter [%d/%d] Loss: %.4f" %(epoch+1, 80, step+1, 500, loss.data[0]))
+        if (step + 1) % 100 == 0:
+            print("Epoch [%d/%d], Iter [%d/%d] Loss: %.4f" % (epoch + 1, 80, step + 1, 500, loss.data[0]))
 
             # plotting decoded image (second row)
             _, decoded_data = model(view_data)
@@ -118,16 +119,19 @@ plt.ioff()
 plt.show()
 
 # visualize in 3D plot
-view_data = Variable(train_dataset.train_data[:200].view(-1, 28*28).type(torch.FloatTensor)/255.)
+view_data = Variable(train_dataset.train_data[:200].view(-1, 28 * 28).type(torch.FloatTensor) / 255.)
 encoded_data, _ = model(view_data)
-fig = plt.figure(2); ax = Axes3D(fig)
+fig = plt.figure(2);
+ax = Axes3D(fig)
 X, Y, Z = encoded_data.data[:, 0].numpy(), encoded_data.data[:, 1].numpy(), encoded_data.data[:, 2].numpy()
 values = train_dataset.train_labels[:200].numpy()
 for x, y, z, s in zip(X, Y, Z, values):
-    c = cm.rainbow(int(255*s/9)); ax.text(x, y, z, s, backgroundcolor=c)
-ax.set_xlim(X.min(), X.max()); ax.set_ylim(Y.min(), Y.max()); ax.set_zlim(Z.min(), Z.max())
+    c = cm.rainbow(int(255 * s / 9));
+    ax.text(x, y, z, s, backgroundcolor=c)
+ax.set_xlim(X.min(), X.max());
+ax.set_ylim(Y.min(), Y.max());
+ax.set_zlim(Z.min(), Z.max())
 plt.show()
 
 # save the model
 torch.save(model.state_dict(), 'model.pkl')
-
