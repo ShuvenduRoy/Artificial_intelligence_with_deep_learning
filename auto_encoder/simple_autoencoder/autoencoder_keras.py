@@ -16,15 +16,15 @@ decoded = Dense(784, activation='sigmoid')(encoded)
 # this model maps an input to its reconstruction
 autoencoder = Model(input_img, decoded)
 
-# this model maps an input to its encoded representation
-encoder = Model(input_img, encoded)
-
-# create placeholder for an encoded input
-encoded_input = Input(shape=(encoding_dim,))
-decoded_layer = autoencoder.layers[-1]
-
-# create decoder model
-decoder = Model(encoded_input, decoded_layer(encoded_input))
+# # this model maps an input to its encoded representation
+# encoder = Model(input_img, encoded)
+#
+# # create placeholder for an encoded input
+# encoded_input = Input(shape=(encoding_dim,))
+# decoded_layer = autoencoder.layers[-1]
+#
+# # create decoder model
+# decoder = Model(encoded_input, decoded_layer(encoded_input))
 
 autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
 
@@ -45,8 +45,7 @@ autoencoder.fit(x_train, x_train, epochs=50, batch_size=256, shuffle=True, valid
 
 # encode and decode some digits
 # note that we take them from the *test* set
-encoded_imgs = encoder.predict(x_test)
-decoded_imgs = decoder.predict(encoded_imgs)
+encoded_imgs = autoencoder(x_test)
 
 # use Matplotlib (don't ask)
 import matplotlib.pyplot as plt
