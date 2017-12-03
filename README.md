@@ -15,3 +15,8 @@ Implementation and modification of standard models to test its performance and a
 Generative algorithms. Algorithms that generate data in some form
 ## AutoEncoder
 - [Simple AutoEncoder](/auto_encoder/simple_autoencoder)
+
+Author: @ShuvenduBikash <br>
+shuvendu1roy@gmail.com
+
+![](image/dancing_cat.gif)
