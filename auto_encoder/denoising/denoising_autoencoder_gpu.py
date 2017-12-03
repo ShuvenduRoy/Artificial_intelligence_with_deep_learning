@@ -94,7 +94,6 @@ for epoch in range(num_epochs):
         # Forward
         optimizer.zero_grad()
         encoded, decoded = model(inputs)
-        #        break
 
         # backward
         loss = criterion(decoded, targets)
@@ -105,10 +104,10 @@ for epoch in range(num_epochs):
 
         if (step + 1) % 100 == 0:
             print("Epoch [%d/%d], Iter [%d/%d] Loss: %.4f" % (
-                epoch + 1, 80, step + 1, (60000) / batch_size, loss.data[0]))
+                epoch + 1, batch_size, step + 1, 60000 / batch_size, loss.data[0]))
 
             # # plotting decoded image (second row)
-            _, decoded_data = model(view_data)
+            _, decoded_data = model(view_data.cuda())
             for i in range(5):
                 a[1][i].clear()
                 a[1][i].imshow(np.reshape(decoded_data.cpu().data.numpy()[i], (28, 28)), cmap='gray')
