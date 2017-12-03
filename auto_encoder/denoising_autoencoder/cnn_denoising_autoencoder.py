@@ -19,9 +19,7 @@ test_dataset = dsets.MNIST(root='C:\datasets\mnist',
                            train=False,
                            transform=transforms.ToTensor())
 
-
-
-# Dataset Loader (Input Pipline)
+# Dataset Loader (Input Pipeline)
 train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
                                            batch_size=batch_size,
                                            shuffle=True)
@@ -64,16 +62,16 @@ learning_rate = 0.005
 criterion = nn.MSELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
+
 # initialize figure
 f, a = plt.subplots(2, 5, figsize=(5, 2))
 plt.ion()  # continuously plot
 
 # original data (first row) for viewing
-
 x_test = test_dataset.test_data.numpy()
-x_test_noisy = x_test + 0.5 * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
+x_test_noisy = x_test + 0.5 * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape)
 x_test_noisy = np.clip(x_test_noisy, 0., 1.)
-x_test_noisy=torch.FloatTensor(x_test_noisy)
+x_test_noisy = torch.FloatTensor(x_test_noisy)
 view_data = Variable(x_test_noisy[:5].view(5, 1, 28, 28).type(torch.FloatTensor) / 255.)
 
 for i in range(5):
@@ -81,14 +79,15 @@ for i in range(5):
     a[0][i].set_xticks(());
     a[0][i].set_yticks(())
 
+
 # train the model
 for epoch in range(num_epochs):
     for step, (images, labels) in enumerate(train_loader):
         x_train = images.numpy()
-        x_train_noisy = x_train + 0.5 * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
+        x_train_noisy = x_train + 0.5 * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape)
         x_train_noisy = np.clip(x_train_noisy, 0., 1.)
         inputs = Variable(torch.FloatTensor(x_train_noisy))
-        
+
         targets = Variable(images)
 
         # Forward
@@ -105,7 +104,7 @@ for epoch in range(num_epochs):
 
         if (step + 1) % 100 == 0:
             print("Epoch [%d/%d], Iter [%d/%d] Loss: %.4f" % (
-            epoch + 1, 80, step + 1, (60000) / batch_size, loss.data[0]))
+                epoch + 1, 80, step + 1, (60000) / batch_size, loss.data[0]))
 
             # # plotting decoded image (second row)
             _, decoded_data = model(view_data)
