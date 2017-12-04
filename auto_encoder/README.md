@@ -7,3 +7,5 @@ implementation of various autoencoder
 - [Deep Auroencoder](deep_autoencoder)
 ![](../image/2d_ae.png)
 ![](../image/3d_ae.png)
+- [Denoising auroencoder](denoising_autoencoder)
+![](../image/denoised_digits.png)
