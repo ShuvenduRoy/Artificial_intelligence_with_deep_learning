@@ -1,6 +1,10 @@
 # Artificial-Intelligence-A-Z
 Implementation and modification of standard models to test its performance and accuracy
 
+## Fundamental ideas
+[Introduction to basic keras](basics/keras_basics.py)
+
+
 ## Basic machine learning
 - [Linear Regression](linear_regression)
 - [Logistic Regression](logistic_regression)
