@@ -1,16 +1,16 @@
-# Artificial-Intelligence-A-Z
+# Artificial Intelligence with Deep Learning
 Implementation and modification of standard models to test its performance and accuracy
 
-## Fundamental ideas
+
+## Basic Deep leanning ideas
+First Get introduce to the deep learning frameworks used<br/>
 [Introduction to basic keras](basics/keras_basics.py)
 
-
-## Basic machine learning
+Simple Deep learning lagorithms<br/>
 - [Linear Regression](linear_regression)
 - [Logistic Regression](logistic_regression)
-
-## Deep Learning
 - [Feed forward neural network](feedforward_neural_network)
+
 
 ## Convolutional neural network
 - [Convolutional neural network](convolutional_neural_network)
