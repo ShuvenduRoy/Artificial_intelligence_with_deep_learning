@@ -7,6 +7,7 @@ First Get introduce to the deep learning frameworks used<br/>
 [Introduction to basic keras](basics/keras_basics.py)
 
 Simple Deep learning lagorithms<br/>
+- [Classification](classification)
 - [Linear Regression](linear_regression)
 - [Logistic Regression](logistic_regression)
 - [Feed forward neural network](feedforward_neural_network)
