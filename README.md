@@ -12,7 +12,11 @@ Simple Deep learning lagorithms<br/>
 - [Logistic Regression](logistic_regression)
 - [Feed forward neural network](feedforward_neural_network)
 
+Fundamentals of machine learning<br/>
+- [Overfitting and Underfitting](fundamentals_of_machine_learning/Overfitting_and_Underfitting.ipynb)
 
+# Computer vision
+Computer vision algorithm. Image classification, segmentation, object detection
 ## Convolutional neural network
 - [Convolutional neural network](convolutional_neural_network)
 
