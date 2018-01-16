@@ -19,6 +19,7 @@ Fundamentals of machine learning<br/>
 Computer vision algorithm. Image classification, segmentation, object detection
 ## Convolutional neural network
 - [Convolutional neural network](convolutional_neural_network)
+- [Training conv net with small dataset](convolutional_neural_network/Training_convnet_on_small_dataset.ipynb)
 
 # Generative Models
 Generative algorithms. Algorithms that generate data in some form
