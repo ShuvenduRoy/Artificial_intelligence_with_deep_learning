@@ -7,3 +7,5 @@ Self Driving Car/last_brain.pth
 
 .ipynb_checkpoints/
 
+*.h5
+
