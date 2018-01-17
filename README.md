@@ -20,7 +20,7 @@ Computer vision algorithm. Image classification, segmentation, object detection
 ## Convolutional neural network
 - [Convolutional neural network](convolutional_neural_network)
 - [Training conv net with small dataset](convolutional_neural_network/Training_convnet_on_small_dataset.ipynb)
-- [Using prertained Convnet model] (convolutional_neural_network/Using_pretrained_convnet.ipynb)
+- [Using prertained Convnet model](convolutional_neural_network/Using_pretrained_convnet.ipynb)
 
 # Generative Models
 Generative algorithms. Algorithms that generate data in some form
