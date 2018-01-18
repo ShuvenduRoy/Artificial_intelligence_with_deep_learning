@@ -34,3 +34,4 @@ Author: @ShuvenduBikash <br>
 shuvendu1roy@gmail.com
 
 ![](image/dancing_cat.gif)
+# BanglaOCR
