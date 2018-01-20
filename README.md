@@ -29,6 +29,10 @@ Processing text and other sequence data. Main area of focus include recurrent ne
 - [Using pretrained word embeddings](text_and_sequence/using_pretrained_word_embedding.ipynb)
 ### Recurrent neural network
 - [Simple RNN in classification task](RNNs/RNN_layers_in_Classification.ipynb)
+- [RNN for series prediction](RNNs/LSTM_for_sequence_prediction.ipynb)
+
+### 1D ConvNet in Sequence processing
+- [1d ConvNet for prediction](text_and_sequence/1d_convnet_for_sequence_processing.ipynb)
 
 # Generative Models
 Generative algorithms. Algorithms that generate data in some form
