@@ -36,6 +36,7 @@ Processing text and other sequence data. Main area of focus include recurrent ne
 
 # Generative Models
 Generative algorithms. Algorithms that generate data in some form
+- [Text generation](generative_models/Character_level_text_generation.ipynb)
 ## AutoEncoders
 - [Simple AutoEncoder](auto_encoder/simple_autoencoder)
 - [Deep Conv autoencoder](auto_encoder/deep_convolutional_autoencoder)
