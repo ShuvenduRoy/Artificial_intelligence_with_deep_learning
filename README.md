@@ -4,7 +4,8 @@ Implementation and modification of standard models to test its performance and a
 
 ## Basic Deep leanning ideas
 First Get introduce to the deep learning frameworks used<br/>
-[Introduction to basic keras](basics/keras_basics.py)
+[Introduction to basic keras](basics/keras_basics.py) <br/>
+[Visualizing with tensorboard](basics/Tensorboard%20for%20visualizing%20network.ipynb)
 
 Simple Deep learning lagorithms<br/>
 - [Classification](classification)
