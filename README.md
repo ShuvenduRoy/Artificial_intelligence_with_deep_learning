@@ -18,10 +18,13 @@ Fundamentals of machine learning<br/>
 
 # Computer vision
 Computer vision algorithm. Image classification, segmentation, object detection
-## Image Classification
+### Image Classification
 - [Convolutional neural network](convolutional_neural_network)
 - [Training conv net with small dataset](convolutional_neural_network/Training_convnet_on_small_dataset.ipynb)
 - [Using prertained Convnet model](convolutional_neural_network/Using_pretrained_convnet.ipynb)
+
+### Image translation
+- [Neural style transfer](style_transfer)
 
 # Text and Sequence processing
 Processing text and other sequence data. Main area of focus include recurrent neural network
