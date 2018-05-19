@@ -47,6 +47,9 @@ Generative algorithms. Algorithms that generate data in some form
 - [Denoising autoencoder](auto_encoder/denoising_autoencoder)
 - [Variational autoencoder](auto_encoder/variational_autoencoders)
 
+# Research Frontier
+[Student-teacher Distilling](student-teacher)
+
 Author: @ShuvenduBikash <br>
 shuvendu1roy@gmail.com
 
