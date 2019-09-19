@@ -1,10 +1,12 @@
-#coding=utf8
+# coding=utf8
 
 from models.BasicModule import *
 # from models.__init__ import *
 from models.DynamicLSTM import DynamicLSTM
 from models.SelfAttention import SelfAttention
 from models.Highway import Highway
+
+
 class LSTMSelfAttention(BasicModule):
     def __init__(self, args):
         super().__init__()
@@ -21,10 +23,10 @@ class LSTMSelfAttention(BasicModule):
         self.embed.weight.requires_grad = args.static != True
 
         self.lstm = DynamicLSTM(input_dim=self.embed_dim,
-                            output_dim=self.hidden_dim,
-                            num_layers=self.num_layers,
-                            bidirectional=True,
-                            batch_first=True)
+                                output_dim=self.hidden_dim,
+                                num_layers=self.num_layers,
+                                bidirectional=True,
+                                batch_first=True)
         self.attention = SelfAttention(input_hidden_dim=self.hidden_dim)
         self.highway = Highway(self.hidden_dim)
         self.dropout = nn.Dropout(self.dropout_rate)
@@ -49,7 +51,3 @@ class LSTMSelfAttention(BasicModule):
         logits = self.fc(highway_out)
 
         return logits
-
-
-
-

@@ -1,8 +1,9 @@
-#coding=utf8
+# coding=utf8
 from utils import *
 from models.LSTMSelfAttention import *
 from mydatasets import *
 import sys
+
 
 def validate(model, val_iter, args):
     model.eval()
@@ -23,15 +24,17 @@ def validate(model, val_iter, args):
 
     size = len(val_iter.dataset)
     avg_loss /= size
-    accuracy = 100.0 * corrects/size
+    accuracy = 100.0 * corrects / size
     model.train()
     print('\nEvaluation - loss: {:.6f}  acc: {:.4f}%({}/{}) '.format(avg_loss,
-                                                                       accuracy,
-                                                                       corrects,
-                                                                       size))
+                                                                     accuracy,
+                                                                     corrects,
+                                                                     size))
+
+
 def train(model, train_iter, val_iter, args):
     print("begin to train models...")
-    optimizer = torch.optim.Adam(model.parameters(), lr = args.lr)
+    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
     steps = 0
 
     for epoch in range(1, args.epochs + 1):
@@ -49,7 +52,7 @@ def train(model, train_iter, val_iter, args):
             if steps % args.log_interval == 0:
                 corrects = (torch.max(logit, 1)[1].view(target.size()).data == target.data).sum()
 
-                accuracy = 100*corrects/batch.batch_size
+                accuracy = 100 * corrects / batch.batch_size
                 sys.stdout.write(
                     '\rBatch[{}] - loss: {:.6f}  acc: {:.4f}%({}/{})'.format(steps,
                                                                              loss.item(),

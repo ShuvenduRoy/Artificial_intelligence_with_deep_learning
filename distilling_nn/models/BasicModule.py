@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 
+
 class BasicModule(nn.Module):
     def __init__(self):
         super(BasicModule, self).__init__()
@@ -17,11 +18,11 @@ class BasicModule(nn.Module):
         return self.cuda()
 
     def save(self, name=None):
-        prefix = 'snapshot/' + self.model_name + '_' +self.opt.type_+'_'
+        prefix = 'snapshot/' + self.model_name + '_' + self.opt.type_ + '_'
         if name is None:
             name = time.strftime('%m%d_%H:%M:%S.pth')
         path = prefix + name
-        data=self.state_dict()
+        data = self.state_dict()
 
         torch.save(data, path)
         return path
