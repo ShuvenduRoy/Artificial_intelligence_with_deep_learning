@@ -28,7 +28,7 @@ def self_softmax(logits, temperature=1):
 def get_common_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--cuda', type=bool, default=True, help='enable the cuda', required=False)
-    parser.add_argument('-device', type=int, default=0,
+    parser.add_argument('-device', type=int, default=-1,
                         help='device to use for iterate data, -1 mean cpu [default: -1]')
     parser.add_argument('-log-interval', type=int, default=1,
                         help='how many steps to wait before logging training status [default: 1]')
